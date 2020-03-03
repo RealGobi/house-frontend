@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import  HeaderComponent  from './components/HeaderComponent';
 import Auth from './page/Auth';
 import  Dashboard  from './page/Dashboard';
@@ -7,9 +8,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-    <h1>House</h1>
-    </div>
+    <Router>
+      <HeaderComponent></HeaderComponent>
+      <Route path="/" exact component={Auth} />
+      <Route path="/dashboard" component={Dashboard} />
+    </Router>
   );
 }
 
