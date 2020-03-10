@@ -23,7 +23,7 @@ export default function Task() {
 
 
   return (
-    <div style={{marginTop: 20}}>
+    <div style={{marginTop: 20}} className="container">
       <h3>Add new task</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -47,7 +47,7 @@ export default function Task() {
                  value={desc}
                  onChange={e => setDesc(e.target.value)} />
         </div>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
     </div>
   )
