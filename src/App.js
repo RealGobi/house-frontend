@@ -15,6 +15,7 @@ function App() {
       <HeaderComponent></HeaderComponent>
       <Route path="/" exact component={Auth} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/task:id" component={Task} />
       <Route path="/task" component={Task} />
       <Route path="/stats" component={Stats} />
     </Router>
