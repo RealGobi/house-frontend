@@ -23,8 +23,32 @@ export default function Task() {
 
 
   return (
-    <div>
-      <h1>Task comp</h1>
+    <div style={{marginTop: 20}}>
+      <h3>Add new task</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Title: </label>
+          <input type="text"
+                 className="form-control"
+                 value={title}
+                 onChange={e => setTitle(e.target.value)} />
+        </div>
+        <div className="form-group">
+          <label>Step: </label>
+          <input type="text"
+                 className="form-control"
+                 value={step}
+                 onChange={e => setStep(e.target.value)} />
+        </div>
+        <div className="form-group">
+          <label>Description: </label>
+          <input type="text"
+                 className="form-control"
+                 value={desc}
+                 onChange={e => setDesc(e.target.value)} />
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   )
 }
