@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 
 export default function Task() {
   const [title, setTitle] = useState('');
@@ -13,6 +13,11 @@ export default function Task() {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
+    axios.post('http://localhost:4000/task/add',newTask)
+    .then(res => console.log('task--', res.data)
+    );
 
     console.log('Form Submited');
     console.log('Title: ', title);
