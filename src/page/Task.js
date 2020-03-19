@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function Task() {
   const [title, setTitle] = useState('');
   const [step, setStep] = useState('');
-  const [desc, setDesc] = useState('');
+  const [description, setDesc] = useState('');
 
   const resetForm = () => {
     setTitle('');
@@ -14,6 +14,11 @@ export default function Task() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const newTask = {
+      title,
+      step,
+      description
+    }
 
     axios.post('http://localhost:4000/task/add',newTask)
     .then(res => console.log('task--', res.data)
@@ -22,7 +27,7 @@ export default function Task() {
     console.log('Form Submited');
     console.log('Title: ', title);
     console.log('Step: ', step);
-    console.log('Desc: ', desc);
+    console.log('Desc: ', description);
     resetForm();
   }
 
@@ -49,7 +54,7 @@ export default function Task() {
           <label>Description: </label>
           <input type="text"
                  className="form-control"
-                 value={desc}
+                 value={description}
                  onChange={e => setDesc(e.target.value)} />
         </div>
         <input type="submit" value="Submit" className="btn btn-primary" />
