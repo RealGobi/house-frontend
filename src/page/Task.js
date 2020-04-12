@@ -33,7 +33,7 @@ export default function Task() {
 
 
   return (
-    <div style={{marginTop: 20}} className="container">
+    <div style={{marginTop: 20}} className="container col">
       <h3>Add new task</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
