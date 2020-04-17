@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {getTasks} from '../actions/taskActions';
 
-export default function Task() {
+const Task = (props) => {
+const { tasks } = props.task;
+  useEffect(() => {
+    getTasks();  
+  }, []);
+  
+
+  Task.prototype = {
+    getTasks: PropTypes.func.isRequired,
+    task: PropTypes.object.isRequired
+  }
+
   const [title, setTitle] = useState('');
   const [step, setStep] = useState('');
   const [description, setDesc] = useState('');
@@ -20,9 +34,9 @@ export default function Task() {
       description
     }
 
-    axios.post('http://localhost:5000/task/add',newTask)
+   /*  axios.post('http://localhost:5000/task/add',newTask)
     .then(res => console.log('task--', res.data)
-    );
+    ); */
 
     console.log('Form Submited');
     console.log('Title: ', title);
@@ -30,8 +44,7 @@ export default function Task() {
     console.log('Desc: ', description);
     resetForm();
   }
-
-
+    
   return (
     <div style={{marginTop: 20}} className="container">
       <h3>Add new task</h3>
@@ -59,6 +72,14 @@ export default function Task() {
         </div>
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
+      <span>{tasks.map((task, idx) => <p key={idx}>{task.name}</p> )} </span>
     </div>
   )
 }
+
+
+const mapStateToProps = state => ({
+  task: state.task
+});
+
+export default connect(mapStateToProps, { getTasks})(Task);
