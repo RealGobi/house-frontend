@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Task = () => {
+const PostTask = () => {
 
   
 
@@ -69,4 +69,4 @@ const Task = () => {
 
 
 
-export default Task;
+export default PostTask;

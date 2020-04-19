@@ -18,7 +18,7 @@ export default function HeaderComponent() {
             <Link to="/stats" className="nav-link">Stats</Link>
           </li>
           <li className="navbar-item">
-            <Link to="/task" className="nav-link">Task</Link>
+            <Link to="/post-task" className="nav-link">Task</Link>
           </li>
         </ul>
       </div>

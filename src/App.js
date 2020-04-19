@@ -6,7 +6,7 @@ import store from './store';
 import HeaderComponent from './components/header/HeaderComponent';
 import Auth from './page/Auth';
 import Dashboard  from './page/Dashboard';
-import Task from './page/Task';
+import PostTask from './page/PostTask';
 import Stats from './page/Stats';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,12 +19,12 @@ function App() {
         <HeaderComponent></HeaderComponent>
         <Route path="/" exact component={Auth} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/task:id" component={Task} />
-        <Route path="/task" component={Task} />
+        <Route path="/post-task" component={PostTask} />
         <Route path="/stats" component={Stats} />
-      </Router>
-    </Provider>
-  );
-}
+        </Router>
+      </Provider>
+      );
+    }
+      // <Route path="/task:id" component={Task} />
 
 export default App;
