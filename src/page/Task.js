@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import {getTasks} from '../actions/taskActions';
 
-const Task = (props) => {
-const { tasks } = props.task;
-  useEffect(() => {
-    getTasks();  
-  }, []);
+const Task = () => {
+
   
 
-  Task.prototype = {
-    getTasks: PropTypes.func.isRequired,
-    task: PropTypes.object.isRequired
-  }
 
   const [title, setTitle] = useState('');
   const [step, setStep] = useState('');
@@ -34,9 +24,9 @@ const { tasks } = props.task;
       description
     }
 
-   /*  axios.post('http://localhost:5000/task/add',newTask)
+     axios.post('http://localhost:5000/task/add',newTask)
     .then(res => console.log('task--', res.data)
-    ); */
+    );
 
     console.log('Form Submited');
     console.log('Title: ', title);
@@ -72,14 +62,11 @@ const { tasks } = props.task;
         </div>
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
-      <span>{tasks.map((task, idx) => <p key={idx}>{task.name}</p> )} </span>
     </div>
   )
 }
 
 
-const mapStateToProps = state => ({
-  task: state.task
-});
 
-export default connect(mapStateToProps, { getTasks})(Task);
+
+export default Task;
