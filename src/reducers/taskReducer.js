@@ -21,6 +21,11 @@ export default function (state = initialState, action) {
         ...state,
         tasks: state.tasks.filter(task => task.id !== action.payload)
       }
+    case LOADING_TASK:
+      return {
+        ...state,
+        loading: true,
+      }
       default:
         return state;
   }
