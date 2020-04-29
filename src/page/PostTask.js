@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { addTask } from '../actions/taskActions';
 
-const PostTask = () => {
 
-  
+const PostTask = (props) => {
+
+  const { addTask } = props;
+
 
 
   const [title, setTitle] = useState('');
@@ -24,14 +28,12 @@ const PostTask = () => {
       description
     }
 
-     axios.post('http://localhost:5000/task/add',newTask)
-    .then(res => console.log('task--', res.data)
-    );
-
     console.log('Form Submited');
     console.log('Title: ', title);
     console.log('Step: ', step);
     console.log('Desc: ', description);
+    
+    addTask(newTask);
     resetForm();
   }
     
@@ -66,7 +68,9 @@ const PostTask = () => {
   )
 }
 
+const mapStateToProps = state => ({
+  task: state.task
+});
 
 
-
-export default PostTask;
+export default connect( mapStateToProps, { addTask } )(PostTask);
