@@ -1,20 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import Prototype from 'prop-types';
+import PropTypes from 'prop-types';
 import { getTasks, deleteTask } from '../actions/taskActions';
+import store from '../store';
 
-const DisplayTask = (props) => {
-  const { tasks } = props.task;
-  const { deleteTask, getTasks } = props;
 
-DisplayTask.prototype = {
-  getTasks: Prototype.func.isRequred,
-  deleteTask: Prototype.func,
-  task: Prototype.object.isRequred
+const DisplayTask = (getState) => {
+  const [item, setTasks] = useState('');
+  const { tasks } = getState.task;
+  setTasks(tasks);
+  // const { tasks } = props.task;
+  // const { deleteTask, getTasks } = props;
+
+DisplayTask.propTypes = {
+  getTasks: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func,
+  task: PropTypes.object.isRequired
 }
 
+
   useEffect(() => {
-    getTasks();  
+    console.log('here');
+    store.dispatch(getTasks());
+     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -24,10 +32,16 @@ DisplayTask.prototype = {
       deleteTask(id);
     };
 
+    const hej = () => {
+      console.log(tasks, '<--');
+
+    }
+
   return (
     <div>
       <h3>Tasks</h3>
-      <span>{tasks.map((task) => <p onClick={() =>  deleteClick(task.id)} key={task.id}>{task.name}</p> )} </span>
+      <button onClick={hej()}>click me!</button>
+      <span>{item.map((task) => <p onClick={() =>  deleteClick(task.id)} key={task._id}>{task.name}</p> )} </span>
     </div>
   )
 }
