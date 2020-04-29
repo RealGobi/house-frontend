@@ -1,30 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { getTasks, deleteTask } from '../actions/taskActions';
-import store from '../store';
+import { deleteTask } from '../actions/taskActions';
 
 
-const DisplayTask = (getState) => {
-  const [item, setTasks] = useState('');
-  const { tasks } = getState.task;
-  setTasks(tasks);
-  // const { tasks } = props.task;
-  // const { deleteTask, getTasks } = props;
+const DisplayTask = (task) => {
 
-DisplayTask.propTypes = {
-  getTasks: PropTypes.func.isRequired,
+  DisplayTask.propTypes = {
   deleteTask: PropTypes.func,
-  task: PropTypes.object.isRequired
+  task: PropTypes.object
 }
-
-
-  useEffect(() => {
-    console.log('here');
-    store.dispatch(getTasks());
-     
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
     // delete
     const deleteClick = (id) => {
@@ -32,22 +16,16 @@ DisplayTask.propTypes = {
       deleteTask(id);
     };
 
-    const hej = () => {
-      console.log(tasks, '<--');
-
-    }
+    
 
   return (
     <div>
       <h3>Tasks</h3>
-      <button onClick={hej()}>click me!</button>
-      <span>{item.map((task) => <p onClick={() =>  deleteClick(task.id)} key={task._id}>{task.name}</p> )} </span>
+      <span>{task.tasks.map((t) => <p onClick={() =>  deleteClick(t._id)} key={t._id}>{t.title}</p> )} </span>
     </div>
   )
 }
 
-const mapStateToProps = state => ({
-  task: state.task
-});
 
-export default connect(mapStateToProps, { getTasks, deleteTask })(DisplayTask);
+
+export default DisplayTask;
