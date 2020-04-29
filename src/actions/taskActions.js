@@ -1,9 +1,16 @@
-import { GET_TASKS, ADD_TASK, DELETE_TASK } from './types';
+import { GET_TASKS, ADD_TASK, DELETE_TASK, LOADING_TASK } from './types';
+import axios from 'axios';
 
-export const getTasks = () => {  
-  return {
-    type: GET_TASKS
-  }
+export const getTasks = () => dispatch => {  
+  dispatch(setLoading);
+  axios
+  .get('http://localhost:5000/task')
+  .then(res => 
+    dispatch({
+      type: GET_TASKS,
+      payload: res.data
+    })
+    );
 }
 
 export const deleteTask = (id) => {  
