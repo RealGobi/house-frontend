@@ -1,11 +1,8 @@
 import { GET_TASKS, ADD_TASK, DELETE_TASK } from '../actions/types';
 
 const initialState = {
-  tasks: [
-    {name: 'GRÄVA', id: 1},
-    {name: 'SKRUVA', id: 2},
-    {name: 'GRÅTA', id: 3}
-  ]
+  tasks: [],
+  loading: false
 }
 
 export default function (state = initialState, action) {
