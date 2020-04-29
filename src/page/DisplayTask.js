@@ -10,20 +10,20 @@ const DisplayTask = (task) => {
   task: PropTypes.object
 }
 
-    // delete
-    const deleteClick = (id) => {
-      console.log(id);
-      deleteTask(id);
-    };
+// delete
+const deleteClick = (id) => {
+  console.log(id);
+  deleteTask(id);
+};
 
     
 
-  return (
-    <div>
-      <h3>Tasks</h3>
-      <span>{task.tasks.map((t) => <p onClick={() =>  deleteClick(t._id)} key={t._id}>{t.title}</p> )} </span>
-    </div>
-  )
+return (
+  <div>
+    <h3>Tasks</h3>
+    <span>{task.tasks.map((t) => <p onClick={() =>  deleteClick(t._id)} key={t._id}>{t.title}</p> )} </span>
+  </div>
+)
 }
 
 

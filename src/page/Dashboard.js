@@ -5,9 +5,9 @@ import { getTasks } from '../actions/taskActions';
 import store from '../store';
 
 const Dashboard = (getState) => {
-
-  const { tasks } = getState.task;
+const { tasks } = getState.task;
 console.log(tasks);
+
 useEffect(() => {
   store.dispatch(getTasks());
    
