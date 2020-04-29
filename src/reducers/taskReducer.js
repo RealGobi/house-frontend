@@ -9,7 +9,10 @@ export default function (state = initialState, action) {
   switch(action.type){
     case GET_TASKS:
       return {
-        ...state
+    case ADD_TASK:
+      return {
+        ...state,
+        tasks: [action.payload, ...state.tasks]
       }
     case DELETE_TASK:
       console.log('delete');
