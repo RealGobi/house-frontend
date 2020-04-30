@@ -2,7 +2,7 @@ import { GET_TASKS, ADD_TASK, DELETE_TASK, LOADING_TASK } from './types';
 import axios from 'axios';
 
 export const getTasks = () => dispatch => {  
-  dispatch(setLoading);
+  dispatch(setLoading());
   axios
   .get('http://localhost:5000/task')
   .then(res => 
