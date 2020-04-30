@@ -13,6 +13,17 @@ export const getTasks = () => dispatch => {
     );
 }
 
+export const addTask = (task) => dispatch => {  
+  axios
+  .post('http://localhost:5000/task/add', task)
+  .then( res => dispatch({
+    type: ADD_TASK,
+    payload: res.data
+  })
+
+  )
+}
+
 export const deleteTask = (id) => {  
 
   return {
