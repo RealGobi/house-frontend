@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { deleteTask } from '../actions/taskActions';
+import store from '../store';
 
 
 const DisplayTask = (task) => {
@@ -12,8 +13,9 @@ const DisplayTask = (task) => {
 
 // delete
 const deleteClick = (id) => {
-  console.log(id);
-  deleteTask(id);
+  console.log('component');
+  store.dispatch(deleteTask(id));
+  ;
 };
 
     
