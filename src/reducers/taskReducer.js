@@ -19,11 +19,11 @@ export default function (state = initialState, action) {
         tasks: [action.payload, ...state.tasks]
       }
     case DELETE_TASK:
-      console.log('delete');
-      
+      console.log('in reducer');
+
       return {
         ...state,
-        tasks: state.tasks.filter(task => task.id !== action.payload)
+        tasks: state.tasks.filter(task => task._id !== action.payload)
       }
     case LOADING_TASK:
       return {
