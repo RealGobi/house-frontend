@@ -19,26 +19,22 @@ export const addTask = (task) => dispatch => {
   .then( res => dispatch({
     type: ADD_TASK,
     payload: res.data
-  })
-
-  )
+  }))
 }
 
-export const deleteTask = (id) => {  
 
-  return {
-    type: DELETE_TASK,
-    payload: id
-  }
+export const deleteTask = (id) => dispatch => {  
+  console.log('in action');
+  
+  axios
+  .delete(`http://localhost:5000/task/delete/${id}`)
+  .then(res =>
+    dispatch({
+      type: DELETE_TASK,
+      payload: id
+    }))
 }
 
-export const addTask = (task) => {  
-
-  return {
-    type: ADD_TASK,
-    payload: task
-  }
-}
 
 export const setLoading = () => {  
 
