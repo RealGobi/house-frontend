@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import DisplayTask from './DisplayTask';
+import DisplayTask from '../components/DisplayTask';
 import { connect } from 'react-redux';
 import { getTasks } from '../actions/taskActions';
 import store from '../store';
