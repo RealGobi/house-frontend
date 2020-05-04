@@ -22,12 +22,18 @@ const deleteClick = (id) => {
 
 return (
   <div>
-    <h3>Tasks</h3>
-    <span>{task.tasks.map((t) => <p onClick={() =>  deleteClick(t._id)} key={t._id}>{t.title}</p> )} </span>
+  <h3>Tasks</h3>
+  <div className={'accordion' + (task.open ? 'open' : '')}>
+    {task.tasks.map((t) => <span onClick={() =>  deleteClick(t._id)} key={t._id}>
+    <p>{t.title}</p>
+    <p>{t.step}</p>
+    <p>{t.description}</p>
+    </span>
+    )} 
+    </div>
   </div>
 )
 }
-
 
 
 export default DisplayTask;
