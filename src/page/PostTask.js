@@ -11,12 +11,14 @@ const PostTask = (props) => {
 
   const [title, setTitle] = useState('');
   const [step, setStep] = useState('');
-  const [description, setDesc] = useState('');
+  const [description, setDescription] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [open, setOpen] = useState(false);
 
   const resetForm = () => {
     setTitle('');
     setStep('');
-    setDesc('')
+    setDescription('')
   }
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,13 +26,16 @@ const PostTask = (props) => {
     const newTask = {
       title,
       step,
-      description
+      description, 
+      open
     }
 
     console.log('Form Submited');
     console.log('Title: ', title);
     console.log('Step: ', step);
     console.log('Desc: ', description);
+    console.log('Open:', open);
+    
     
     addTask(newTask);
     resetForm();
@@ -59,7 +64,7 @@ const PostTask = (props) => {
           <input type="text"
                  className="form-control"
                  value={description}
-                 onChange={e => setDesc(e.target.value)} />
+                 onChange={e => setDescription(e.target.value)} />
         </div>
         <input type="submit" value="Submit" className="btn btn-primary" />
       </form>
