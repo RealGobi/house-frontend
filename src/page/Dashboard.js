@@ -17,7 +17,11 @@ useEffect(() => {
   return (
     <div>
       <h1>Dashboard comp</h1>
-      <DisplayTask tasks={tasks} />
+      <span className="task">
+      {tasks.map((task, idx) => (
+        <DisplayTask task={task} key={idx}/>
+      ))}
+      </span>
     </div>
   )
 }
