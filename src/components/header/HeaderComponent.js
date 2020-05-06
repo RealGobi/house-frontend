@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 export default function HeaderComponent() {
   const street = 'Legendvägen 36'
+  const bg = '#ccc'
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: bg}}>
     <Link to="/dashboard" className="navbar-brand" >
       {street}
     </Link>
