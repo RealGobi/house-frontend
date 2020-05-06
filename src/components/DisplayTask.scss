@@ -1,0 +1,12 @@
+.accordion {
+  margin: 16px;
+  padding: 16px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  .step, .description {
+    opacity: 0;
+    max-height: 0px;
+    overflow-y: hidden;
+  }
+}
