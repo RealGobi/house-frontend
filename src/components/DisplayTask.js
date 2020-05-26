@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { deleteTask } from '../actions/taskActions';
 import store from '../store';
-import './DisplayTask.scss';
+import '../App.css';
 
 
-const DisplayTask = (task) => {
+const DisplayTask = ({task, index, toggleTask}) => {
 
   DisplayTask.propTypes = {
   deleteTask: PropTypes.func,
+  toggleTask: PropTypes.func,
   task: PropTypes.object
 }
 
@@ -23,10 +24,13 @@ const deleteClick = (id) => {
 
 return (
   
-  <div className={'accordion' + (task.open ? 'open' : '')}>
-    <p className="title">{task.task.title}</p>    
-    <p className="step">{task.task.step}</p>    
-    <p className="description">{task.task.description}</p>    
+  <div className={'accordion ' + (task.open ? 'open' : '')} 
+       key={index} 
+       onClick={() => toggleTask(index)}>
+
+      <div className="title">{task.title}</div>    
+      <div className="step">{task.step}</div>    
+      <div className="description">{task.description}</div>    
   </div>
   
 )

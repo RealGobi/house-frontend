@@ -35,7 +35,6 @@ export const deleteTask = (id) => dispatch => {
     }))
 }
 
-
 export const setLoading = () => {  
 
   return {

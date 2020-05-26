@@ -2,7 +2,7 @@ import { GET_TASKS, ADD_TASK, DELETE_TASK, LOADING_TASK } from '../actions/types
 
 const initialState = {
   tasks: [],
-  loading: false
+  loading: false,
 }
 
 export default function (state = initialState, action) {
