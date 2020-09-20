@@ -15,22 +15,26 @@ const DisplayTask = ({task, index, toggleTask}) => {
 
 // delete
 const deleteClick = (id) => {
-  console.log('component');
+  console.log('id', id);
   store.dispatch(deleteTask(id));
   ;
 };
 
+    console.log(task.open, 'öppen?');
+    console.log(task);
+    
     
 
 return (
   
   <div className={'accordion ' + (task.open ? 'open' : '')} 
        key={index} 
-       onClick={() => toggleTask(index)}>
+       onClick={() => console.log(task)}>
 
       <div className="title">{task.title}</div>    
       <div className="step">{task.step}</div>    
-      <div className="description">{task.description}</div>    
+      <div className="description">{task.description}</div> 
+      <span id="deleteTask" onClick={() => deleteClick(task._id)}>x</span>   
   </div>
   
 )
