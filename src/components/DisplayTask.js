@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { deleteTask } from '../actions/taskActions';
 import store from '../store';
 import '../App.css';
+import './DisplayTask.css';
 
 
 const DisplayTask = ({task, index, toggleTask}) => {
+
+const [show, setShow] = useState(false);
 
   DisplayTask.propTypes = {
   deleteTask: PropTypes.func,
@@ -20,21 +23,20 @@ const deleteClick = (id) => {
   ;
 };
 
-    console.log(task.open, 'öppen?');
-    console.log(task);
+    console.log(show);
     
     
 
 return (
   
-  <div className={'accordion ' + (task.open ? 'open' : '')} 
+  <div className={'accordion ' + (task.open ? 'open' : 'false')} 
        key={index} 
-       onClick={() => console.log(task)}>
+       onClick={() => setShow(!show) }>
 
       <div className="title">{task.title}</div>    
       <div className="step">{task.step}</div>    
       <div className="description">{task.description}</div> 
-      <span id="deleteTask" onClick={() => deleteClick(task._id)}>x</span>   
+      <span id="deleteTask" onClick={() => deleteClick(task._id)}>X</span> 
   </div>
   
 )
