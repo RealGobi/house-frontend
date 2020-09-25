@@ -31,12 +31,23 @@ return (
   
   <div className={'accordion ' + (task.open ? 'open' : 'false')} 
        key={index} 
-       onClick={() => setShow(!show) }>
-
+       onClick={() => setIsOpen(!isOpen) }>
+      { isOpen && (
+        <div>
+          <div className="title">{task.title}</div>    
       <div className="title">{task.title}</div>    
+          <div className="title">{task.title}</div>    
+          <div className="step">{task.step}</div>    
       <div className="step">{task.step}</div>    
+          <div className="step">{task.step}</div>    
+          <div className="description">{task.description}</div> 
       <div className="description">{task.description}</div> 
+          <div className="description">{task.description}</div> 
+          <span id="deleteTask" onClick={() => deleteClick(task._id)}>X</span> 
       <span id="deleteTask" onClick={() => deleteClick(task._id)}>X</span> 
+          <span id="deleteTask" onClick={() => deleteClick(task._id)}>X</span> 
+        </div>
+      )}
   </div>
   
 )
