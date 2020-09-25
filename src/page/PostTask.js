@@ -61,7 +61,7 @@ const PostTask = (props) => {
         </div>
         <div className="form-group">
           <label>Description: </label>
-          <input type="text"
+          <textarea
                  className="form-control"
                  value={description}
                  onChange={e => setDescription(e.target.value)} />
