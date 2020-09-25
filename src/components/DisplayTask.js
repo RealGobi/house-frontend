@@ -7,7 +7,7 @@ import './DisplayTask.css';
 import arrow from '../assets/Arrow-down.png';
 
 
-const DisplayTask = ({task, index}) => {
+const DisplayTask = ({task, index, admin}) => {
 
 const [isOpen, setIsOpen] = useState(false);
 
@@ -37,7 +37,12 @@ return (
         <div>
           <div className="step">{task.step}</div>    
           <div className="description">{task.description}</div> 
-          <span id="deleteTask" onClick={() => deleteClick(task._id)}>X</span> 
+          {/*
+          if admin, edit and delete option.
+          */}
+          {admin && (
+            <span id="deleteTask" onClick={() => deleteClick(task._id)}><button type="button" className="btn btn-outline-danger">Delete</button></span> 
+          )}
         </div>
       )}
   </div>
