@@ -1,11 +1,5 @@
-#deleteTask {
-  color: rgb(240, 239, 239);
-  background-color: red;
-  padding: 5px;
-  cursor: pointer;
-}
 
-.inducator {
+.inducator, #deleteTask {
   display: flex;
   justify-content: flex-end;
 }
@@ -16,4 +10,8 @@
 
 #closeArrow {
   transform: rotate(180deg);
+}
+
+.title {
+  font-size: 1.5rem;
 }
