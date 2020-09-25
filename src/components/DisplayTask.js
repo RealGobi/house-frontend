@@ -6,7 +6,7 @@ import '../App.css';
 import './DisplayTask.css';
 
 
-const DisplayTask = ({task, index, toggleTask}) => {
+const DisplayTask = ({task, index}) => {
 
 const [isOpen, setIsOpen] = useState(false);
 

@@ -14,21 +14,6 @@ useEffect(() => {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
-const toggleTask = index => {
-  setTask(locTask.map((task, i) => {
-    if (i === index) {
-      console.log(index);
-      
-      task.open = !task.open
-    } else {
-      task.open = false;
-    }
-
-    return task;
-  }))
-}
-
-
   return (
     <div>
       <h1>Dashboard comp</h1>
@@ -36,7 +21,7 @@ const toggleTask = index => {
       {
         tasks.map((task, i) => (
           <div key={i}>
-            <DisplayTask task={task} index={i} toggleTask={toggleTask} />
+            <DisplayTask task={task} index={i} />
           </div>
         ))
       }
