@@ -8,7 +8,7 @@ import './DisplayTask.css';
 
 const DisplayTask = ({task, index, toggleTask}) => {
 
-const [show, setShow] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
 
   DisplayTask.propTypes = {
   deleteTask: PropTypes.func,
