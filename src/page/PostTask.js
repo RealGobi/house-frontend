@@ -26,16 +26,13 @@ const PostTask = (props) => {
     const newTask = {
       title,
       step,
-      description, 
-      open
+      description
     }
 
     console.log('Form Submited');
     console.log('Title: ', title);
     console.log('Step: ', step);
-    console.log('Desc: ', description);
-    console.log('Open:', open);
-    
+    console.log('Desc: ', description);    
     
     addTask(newTask);
     resetForm();
