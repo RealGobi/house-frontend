@@ -13,7 +13,6 @@ const PostTask = (props) => {
   const [step, setStep] = useState('');
   const [description, setDescription] = useState('');
   // eslint-disable-next-line no-unused-vars
-  const [open, setOpen] = useState(false);
 
   const resetForm = () => {
     setTitle('');
