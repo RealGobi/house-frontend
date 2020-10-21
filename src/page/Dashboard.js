@@ -6,8 +6,9 @@ import store from '../store';
 
 const Dashboard = (getState) => {
 const { tasks } = getState.task;
-console.log(tasks);
-const [locTask, setTask] = useState([])
+
+const [locTask, setTask] = useState([]);
+
 useEffect(() => {
   store.dispatch(getTasks());
    setTask(tasks);
