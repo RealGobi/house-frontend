@@ -20,7 +20,7 @@ function App() {
         <Route path="/" exact component={Auth} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/post-task" component={PostTask} />
-        <Route path="/stats" component={Stats} />
+        {/* <Route path="/stats" component={Stats} />  */}
         </Router>
       </Provider>
       );
