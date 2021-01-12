@@ -8,6 +8,7 @@ const Dashboard = (getState) => {
 const { tasks } = getState.task;
 
 const [locTask, setTask] = useState([]);
+const [admin, setAdmin] = useState(true);
 
 useEffect(() => {
   store.dispatch(getTasks());
@@ -22,7 +23,7 @@ useEffect(() => {
       {
         tasks.map((task, i) => (
           <div key={i}>
-            <DisplayTask task={task} index={i} />
+            <DisplayTask task={task} index={i} admin={admin} />
           </div>
         ))
       }
