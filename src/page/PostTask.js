@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTask } from '../actions/taskActions';
+import classNames from 'classnames';
 
 
 const PostTask = (props) => {
@@ -37,6 +38,21 @@ const PostTask = (props) => {
     resetForm();
   }
     
+
+  const formStyleInput = classNames(
+    'form-control',
+    {
+      'inputErr': titleErr 
+    }
+  );
+
+  const formStyleTextArea = classNames(
+    'form-control',
+    {
+      'inputErr': descriptionErr 
+    }
+  );
+    
   return (
     <div style={{marginTop: 20}} className="container">
       <h3>Add new task</h3>
@@ -44,7 +60,7 @@ const PostTask = (props) => {
         <div className="form-group">
           <label>Title: </label>
           <input type="text"
-                 className="form-control"
+                 className={formStyleInput}
                  value={title}
                  onChange={e => setTitle(e.target.value)} />
         </div>
@@ -58,7 +74,7 @@ const PostTask = (props) => {
         <div className="form-group">
           <label>Description: </label>
           <textarea
-                 className="form-control"
+                 className={formStyleTextArea}
                  value={description}
                  onChange={e => setDescription(e.target.value)} />
         </div>
