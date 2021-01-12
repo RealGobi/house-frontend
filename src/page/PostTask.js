@@ -11,33 +11,60 @@ const PostTask = (props) => {
 
 
   const [title, setTitle] = useState('');
-  const [step, setStep] = useState('');
   const [description, setDescription] = useState('');
-  // eslint-disable-next-line no-unused-vars
+
+  const [titleErr, setTitleErr] = useState('');
+  const [descriptionErr, setDescriptionErr] = useState('');
 
   const resetForm = () => {
     setTitle('');
-    setStep('');
-    setDescription('')
+    setDescription('');
+    setTitleErr('');
+    setDescriptionErr('');
   }
+
+  const validate = () => {
+    let titleErr;
+    let descriptionErr;
+
+    if(title.length < 2) {
+      titleErr = 'Add a title';
+    }
+
+    if(description.length < 7) {
+      descriptionErr = 'Add a description'
+    }
+
+    if(titleErr || descriptionErr) {
+      setTitleErr(titleErr);
+      setDescriptionErr(descriptionErr);
+      return false;
+    }
+
+    return true;
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newTask = {
-      title,
-      step,
-      description
-    }
+    const isValid = validate();
 
-    console.log('Form Submited');
-    console.log('Title: ', title);
-    console.log('Step: ', step);
-    console.log('Desc: ', description);    
-    
-    addTask(newTask);
-    resetForm();
+    if(isValid) {
+      const newTask = {
+        title,
+        description
+      }
+  
+      console.log('Form Submited');
+      console.log('Title: ', title);
+      console.log('Desc: ', description);    
+      
+      addTask(newTask);
+      resetForm();
+    }
   }
-    
+
 
   const formStyleInput = classNames(
     'form-control',
@@ -59,20 +86,15 @@ const PostTask = (props) => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Title: </label>
+          {titleErr && <p className="error">{titleErr}</p>}
           <input type="text"
                  className={formStyleInput}
                  value={title}
                  onChange={e => setTitle(e.target.value)} />
         </div>
         <div className="form-group">
-          <label>Step: </label>
-          <input type="text"
-                 className="form-control"
-                 value={step}
-                 onChange={e => setStep(e.target.value)} />
-        </div>
-        <div className="form-group">
           <label>Description: </label>
+          {descriptionErr && <p className="error">{descriptionErr}</p>}
           <textarea
                  className={formStyleTextArea}
                  value={description}
