@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTask } from '../actions/taskActions';
 import classNames from 'classnames';
+import { useHistory } from 'react-router-dom';
 
 
 const PostTask = (props) => {
 
+  const history = useHistory();
   const { addTask } = props;
 
 
@@ -62,6 +64,7 @@ const PostTask = (props) => {
       
       addTask(newTask);
       resetForm();
+      history.push("/dashboard");
     }
   }
 
