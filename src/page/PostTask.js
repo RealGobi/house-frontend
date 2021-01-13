@@ -27,11 +27,11 @@ const PostTask = (props) => {
     let titleErr;
     let descriptionErr;
 
-    if(title.length < 2) {
+    if(!title) {
       titleErr = 'Add a title';
     }
 
-    if(description.length < 7) {
+    if(!description) {
       descriptionErr = 'Add a description'
     }
 
