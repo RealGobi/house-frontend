@@ -1,21 +1,31 @@
 import React from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
+import Logout from '../auth/Logout';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default function HeaderComponent() {
-  const street = 'Legendvägen 36'
-  const bg = '#ccc'
+const HeaderComponent = (props) => {
+ const bg = '#ccc';
+ HeaderComponent.propTypes = {
+   auth : PropTypes.object.isRequired
+  };
+  
+  const { isAuthenticated, user } = props.auth;
+ 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: bg}}>
+    <>
+    { isAuthenticated &&
+      <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: bg}}>
     <Link style={{textDecoration:"none"}} to="/dashboard" className="street" >
-      {street}
+      {user.street}
     </Link>
       <div className="collpase nav-collpase">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
             <Link to="/dashboard" className="nav-link margin">Renoveringar</Link>
           </li>
-{/*           <li className="navbar-item">
+        {/*<li className="navbar-item">
             <Link to="/stats" className="nav-link">Stats</Link>
           </li> */}
           <li className="navbar-item">
@@ -23,6 +33,17 @@ export default function HeaderComponent() {
           </li>
         </ul>
       </div>
+          <div className="logout-placement">
+             <Logout /> 
+          </div>
     </nav>
+    }
+  </>
   )
 }
+
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, null) (HeaderComponent);

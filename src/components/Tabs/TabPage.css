@@ -1,0 +1,47 @@
+.TabPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.TabPage .menu {
+  flex: 0 0 auto;
+  display: flex;
+  height: 72px;
+}
+
+.TabPage .menu .menu-item {
+
+  flex: 1 1 auto;
+  height: 64px;
+  padding: 8px 24px 4px;
+  margin: 0;
+
+  background-color: #e7e7e7;
+  border: none;
+  font-family: "Gotham-Book";
+  color: #53585b;
+  font-size: 18px;
+  text-align: left;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.TabPage .menu .menu-item:focus {
+  outline-offset: -2px;
+  outline-style: inset;
+  outline-width: medium;
+}
+
+.TabPage .menu .menu-item.active:focus {
+  outline-color: rgb(189, 185, 185);
+}
+
+.TabPage .menu .menu-item.active {
+  background-color: rgb(141, 138, 138);
+  color: #fff;
+}
+
+

@@ -6,7 +6,7 @@ import store from '../store';
 
 const Dashboard = (getState) => {
 const { tasks } = getState.task;
-
+console.log(tasks);
 const [locTask, setTask] = useState([]);
 const [admin, setAdmin] = useState(true);
 
@@ -15,10 +15,8 @@ useEffect(() => {
    setTask(tasks);
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
-
   return (
     <div>
-      <h1>Dashboard comp</h1>
       <span className="task">
       {
         tasks.map((task, i) => (
@@ -33,6 +31,7 @@ useEffect(() => {
 }
 
 const mapStateToProps = state => ({
-  task: state.task
+  task: state.task,
+  street: state.auth.street,
 });
 export default connect( mapStateToProps, { getTasks } )(Dashboard);

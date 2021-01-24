@@ -11,3 +11,9 @@
 .margin {
   margin: 0 25px ;
 }
+
+.logout-placement {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

@@ -7,10 +7,11 @@ export const LOADING_TASK = 'LOADING_TASK';
 export const USER_LOADING = 'USER_LOADING';
 export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
-export const LOGIN_SUCSSES = 'LOGIN_SUCSSES';
-export const LOGOUT_SUCSSES = 'LOGOUT_SUCSSES';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
-export const REGISTER_SUCSSES = 'REGISTER_SUCSSES';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const GET_ERROR = 'GET_ERROR';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
+
