@@ -33,3 +33,17 @@ body {
 .inputErr {
 	border: 1px solid rgba(167, 20, 20, 0.678)!important;
 }
+
+.logout {
+	padding: 5px;
+  border-radius: 8px;
+  background: rgb(0, 0, 0);
+  color: white;
+  border: 1px solid white;
+}
+
+.logout:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
