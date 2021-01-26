@@ -17,7 +17,7 @@ const PostTask = (props) => {
 
   const [titleErr, setTitleErr] = useState('');
   const [descriptionErr, setDescriptionErr] = useState('');
-
+console.log(props.user.id);
   const resetForm = () => {
     setTitle('');
     setDescription('');
@@ -51,11 +51,12 @@ const PostTask = (props) => {
     e.preventDefault();
 
     const isValid = validate();
-
+    const userId = props.user.id;
     if(isValid) {
       const newTask = {
         title,
-        description
+        description,
+        userId
       }
   
       console.log('Form Submited');
@@ -64,7 +65,7 @@ const PostTask = (props) => {
       
       addTask(newTask);
       resetForm();
-      history.push("/dashboard");
+      history.push("/taskReel");
     }
   }
 
@@ -110,7 +111,8 @@ const PostTask = (props) => {
 }
 
 const mapStateToProps = state => ({
-  task: state.task
+  task: state.task,
+  user: state.auth.user
 });
 
 
