@@ -16,7 +16,7 @@ const Login = (props) => {
   };
   console.log(props.getState);
 
-  const [email, setEmail] = useState('swe@gmail.com');
+  const [email, setEmail] = useState('888swe@gmail.com');
   const [password, setPassword] = useState('123');
   const [err, setErr] = useState('');
   const history = useHistory();
@@ -36,14 +36,17 @@ const Login = (props) => {
 
     // Attempt to login
     props.login(user);
+
+    if (props.isAuthenticated) {
+      history.push('/taskReel');
+  }
+
     // reset
     setEmail('');
     setPassword('');
     setErr('');
     props.clearErrors();
 
-      history.push('/dashboard');
-    console.log('to start', props);
   }, [props, email, password, history]);
 
   useEffect(() => {
@@ -51,7 +54,7 @@ const Login = (props) => {
       setErr(props.error.msg.msg);
     }
     if (props.isAuthenticated) {
-      history.push('/dashboard');
+      history.push('/taskReel');
     }
   }, [submitHandler, props, history]); 
 

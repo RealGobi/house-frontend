@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import HeaderComponent from './components/header/HeaderComponent';
 import Auth from './page/Auth';
-import Dashboard  from './page/Dashboard';
+import TaskReel  from './page/TaskReel';
 import PostTask from './page/PostTask';
 // import Stats from './page/Stats';
 import store from './store';
@@ -27,7 +27,7 @@ function App() {
       <Router>
         <HeaderComponent />
         <Route path="/" exact render={() => <Auth />} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/taskReel" component={TaskReel} />
         <Route path="/post-task" component={PostTask} />
         {/* <Route path="/stats" component={Stats} />  */}
         </Router>

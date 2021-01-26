@@ -17,13 +17,13 @@ const HeaderComponent = (props) => {
     <>
     { isAuthenticated &&
       <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: bg}}>
-    <Link style={{textDecoration:"none"}} to="/dashboard" className="street" >
+    <Link style={{textDecoration:"none"}} to="/taskReel" className="street" >
       {user.street}
     </Link>
       <div className="collpase nav-collpase">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
-            <Link to="/dashboard" className="nav-link margin">Renoveringar</Link>
+            <Link to="/taskReel" className="nav-link margin">Renoveringar</Link>
           </li>
         {/*<li className="navbar-item">
             <Link to="/stats" className="nav-link">Stats</Link>

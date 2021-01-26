@@ -6,8 +6,10 @@ import {registration} from '../../actions/authActions';
 import './auth.css';
 import config from '../../config/default.json';
 import { clearErrors } from '../../actions/errorActions';
+import { useHistory } from 'react-router-dom';
 
 const Registration = (props) => {
+  const history = useHistory();
 
   console.log(props.isAuthenticated);
 
@@ -61,7 +63,9 @@ const Registration = (props) => {
     setErr('');
     props.clearErrors();
 
-
+    if (props.isAuthenticated) {
+      history.push('/taskReel');
+  }
   });
 
   useEffect(() => {
@@ -69,7 +73,7 @@ const Registration = (props) => {
       setErr(props.error.msg.msg);
     }
   }, [submitHandler]);
-console.log(props.isAuthenticateds);
+
   return (
     <div className="content">
       <form onSubmit={submitHandler}>
