@@ -27,7 +27,7 @@ axios
 )
 .catch(err => {
   console.log(err);
-  dispatch(returnErrors(err.response.data, err.response.status));
+  dispatch(returnErrors(err.response));
   dispatch({
     type: AUTH_ERROR
   });
