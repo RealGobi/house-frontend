@@ -3,21 +3,23 @@ import { connect } from 'react-redux';
 import { addTask } from '../actions/taskActions';
 import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
+import store from '../store';
 
 
-const PostTask = (props) => {
+const PostTask = (getState) => {
 
   const history = useHistory();
-  const { addTask } = props;
-
-
+  const { id } = getState.user;
+  const { tasks } = getState.task;
+console.log(tasks);
+console.log(id);
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
   const [titleErr, setTitleErr] = useState('');
   const [descriptionErr, setDescriptionErr] = useState('');
-console.log(props.user.id);
+
   const resetForm = () => {
     setTitle('');
     setDescription('');
@@ -51,7 +53,7 @@ console.log(props.user.id);
     e.preventDefault();
 
     const isValid = validate();
-    const userId = props.user.id;
+    const userId = id;
     if(isValid) {
       const newTask = {
         title,
@@ -63,7 +65,7 @@ console.log(props.user.id);
       console.log('Title: ', title);
       console.log('Desc: ', description);    
       
-      addTask(newTask);
+      store.dispatch(addTask(newTask));
       resetForm();
       history.push("/taskReel");
     }
