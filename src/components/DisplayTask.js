@@ -37,6 +37,7 @@ return (
         <div>
           <div className="step">{task.step}</div>    
           <div className="description">{task.description}</div> 
+          <div>{task.createdAt.substring(0,10)}</div>
           {/*
           if admin, edit and delete option.
           */}
