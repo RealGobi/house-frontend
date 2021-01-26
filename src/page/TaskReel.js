@@ -7,7 +7,6 @@ import store from '../store';
 const TaskReel = (getState) => {
 const { tasks } = getState.task;
 const { id } = getState.user;
-console.log(id);
 const [locTask, setTask] = useState([]);
 const [admin, setAdmin] = useState(true);
 
