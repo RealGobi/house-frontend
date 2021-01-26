@@ -11,8 +11,6 @@ import { useHistory } from 'react-router-dom';
 const Registration = (props) => {
   const history = useHistory();
 
-  console.log(props.isAuthenticated);
-
   Registration.propTypes = {
     isAuthenticated: PropTypes.bool,
     error: PropTypes.object.isRequired,
@@ -31,6 +29,14 @@ const Registration = (props) => {
   const [street, setStreet] = useState('');
   const [err, setErr] = useState('');
   
+  const validate = () => {
+    if(!name || !email || !password || !street){
+      setErr('Fyll i alla fält.');
+      console.log(err);
+      return false;
+    }
+    return true;
+  }
 
   const submitHandler = useCallback((e) => {
 
@@ -38,34 +44,39 @@ const Registration = (props) => {
     const inviteCode = config.code;
 
     if (enterdCode !== inviteCode){
-      return setErr('Ingen giltlig inbjudningskod')
+      return setErr('Ingen giltlig inbjudningskod');
     }
+    const isValid = validate();
 
+    if(isValid) {
+      // Create user object
+      const newUser = {
+        name,
+        email,
+        password,
+        street,
+      };
 
-    // Create user object
-    const newUser = {
-      name,
-      email,
-      password,
-      street,
-    };
+      // Attempt to register
+      props.registration(newUser);
+  
+      console.log(name, email, password, enterdCode, street);
 
-    // Attempt to register
-    props.registration(newUser);
+      // push user to path -- need of better solution --
 
-    console.log(name, email, password, enterdCode, street);
-    // reset
-    setName('');
-    setEmail('');
-    setPassword('');
-    setEnterdCode('');
-    setStreet('');
-    setErr('');
-    props.clearErrors();
+      setTimeout(() => {
+        history.push('/taskReel');
+      }, 250);
 
-    if (props.isAuthenticated) {
-      history.push('/taskReel');
-  }
+      // reset
+      setName('');
+      setEmail('');
+      setPassword('');
+      setEnterdCode('');
+      setStreet('');
+      setErr('');
+      props.clearErrors();
+    }
   });
 
   useEffect(() => {
