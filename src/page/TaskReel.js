@@ -22,7 +22,7 @@ console.log(filterdTasks,'<->',id);
 const sortedByDate = filterdTasks.sort((a, b) => {
     var c = new Date(a.createdAt);
     var d = new Date(b.createdAt);
-    return c-d;
+    return d-c;
 });
 
 return (
