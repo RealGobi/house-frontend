@@ -22,6 +22,8 @@ console.log(filterdTasks,'<->',id);
 const sortedByDate = filterdTasks.sort((a, b) => {
     var c = new Date(a.createdAt);
     var d = new Date(b.createdAt);
+
+    // new first 
     return d-c;
 });
 
