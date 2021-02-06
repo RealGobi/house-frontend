@@ -57,17 +57,24 @@ console.log(id);
     const isValid = validate();
     const userId = id;
     if(isValid) {
-      const newTask = {
-        title,
-        description,
-        userId
-      }
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('title', title);
+      formData.append('description', description);
+      formData.append('userId', userId);
+      console.log(formData);
+      console.log(file);
+
+      console.log(formData);
+
+
   
       console.log('Form Submited');
       console.log('Title: ', title);
       console.log('Desc: ', description);    
       
-      store.dispatch(addTask(newTask));
+      store.dispatch(addTask(formData));
+
       resetForm();
       history.push("/taskReel");
     }
