@@ -5,8 +5,8 @@ import { getTasks } from '../actions/taskActions';
 import store from '../store';
 
 const TaskReel = (getState) => {
+
 const { tasks } = getState.task;
-const { id } = getState.user;
 const [locTask, setTask] = useState([]);
 const [admin, setAdmin] = useState(true);
 
@@ -16,8 +16,8 @@ useEffect(() => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
-const filterdTasks = tasks.filter(task => task.addedBy === id); 
-console.log(filterdTasks,'<->',id);
+
+const filterdTasks = tasks.filter(task => task.addedBy === getState.user.id); 
 
 const sortedByDate = filterdTasks.sort((a, b) => {
     var c = new Date(a.createdAt);
