@@ -16,6 +16,7 @@ console.log(id);
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [file, setFile] = useState(null);
 
   const [titleErr, setTitleErr] = useState('');
   const [descriptionErr, setDescriptionErr] = useState('');
@@ -25,6 +26,7 @@ console.log(id);
     setDescription('');
     setTitleErr('');
     setDescriptionErr('');
+    setFile(null);
   }
 
   const validate = () => {
@@ -89,7 +91,7 @@ console.log(id);
   return (
     <div style={{marginTop: 20}} className="container">
       <h3>Add new task</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} method="post" encType="multipart/form-data">
         <div className="form-group">
           <label>Title: </label>
           {titleErr && <p className="error">{titleErr}</p>}
@@ -106,7 +108,10 @@ console.log(id);
                  value={description}
                  onChange={e => setDescription(e.target.value)} />
         </div>
-        <input type="submit" value="Submit" className="btn btn-primary" />
+        <div>
+              <input type="file" name="photo" encType="multipart/form-data" onChange={e => setFile(e.target.files[0])} />         
+        </div>
+        <input type="submit" value='Upload' className="btn btn-primary" />
       </form>
     </div>
   )
