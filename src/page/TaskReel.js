@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react';
 import DisplayTask from '../components/DisplayTask';
 import { connect } from 'react-redux';
 import { getTasks } from '../actions/taskActions';
+import { useHistory } from 'react-router-dom';
+
 import store from '../store';
 
 const TaskReel = (getState) => {
+  const history = useHistory();
+
+  // if user relods page, push back to /
+  if(!getState.user) {
+    history.push("/");
+  }
 
 const { tasks } = getState.task;
 const [locTask, setTask] = useState([]);
