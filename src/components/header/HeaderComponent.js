@@ -31,6 +31,9 @@ const HeaderComponent = (props) => {
           <li className="navbar-item">
             <Link to="/post-task" className="nav-link">Lägg till</Link>
           </li>
+          <li className="navbar-item">
+            <Link to="/document" className="nav-link">Dokument</Link>
+          </li>
         </ul>
       </div>
           <div className="logout-placement">
