@@ -5,6 +5,7 @@ import HeaderComponent from './components/header/HeaderComponent';
 import Auth from './page/Auth';
 import TaskReel  from './page/TaskReel';
 import PostTask from './page/PostTask';
+import MyDocument from './page/MyDocument';
 // import Stats from './page/Stats';
 import store from './store';
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" exact render={() => <Auth />} />
         <Route path="/taskReel" component={TaskReel} />
         <Route path="/post-task" component={PostTask} />
+        <Route path="/document" component={MyDocument} />
         {/* <Route path="/stats" component={Stats} />  */}
         </Router>
       );
